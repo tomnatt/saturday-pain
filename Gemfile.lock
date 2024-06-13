@@ -11,7 +11,6 @@ GEM
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
     ffi (1.15.5)
-    flickr (2.1.0)
     forwardable-extended (2.6.0)
     google-protobuf (3.23.4-x86_64-linux)
     http_parser.rb (0.8.0)
@@ -56,6 +55,8 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
+    nokogiri (1.16.5-x86_64-linux)
+      racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.3)
       ast (~> 2.4.1)
@@ -100,9 +101,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  flickr
   jekyll
   minima
+  nokogiri
   rake
   rubocop
   rubocop-rake
