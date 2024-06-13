@@ -1,29 +1,18 @@
-require 'json'
-require 'net/http'
-require 'uri'
-require 'nokogiri'
+require 'yaml'
 
-user_id = ENV.fetch('FLICKR_USER_ID')
-flickr_api_key = ENV.fetch('FLICKR_API_KEY')
-photoset_id = 72_157_711_613_641_123
+require './lib/flickr_api'
 
-flickr_api = "https://api.flickr.com/services/rest/?&api_key=#{flickr_api_key}&user_id=#{user_id}"
-flickr_get_photos = "#{flickr_api}&method=flickr.photosets.getPhotos&photoset_id=#{photoset_id}"
+sat_pain_photoset_id = 72_157_711_613_641_123
 
-photos_xml = Net::HTTP.get(URI.parse(flickr_get_photos))
-photos = Nokogiri::XML(photos_xml).xpath('//rsp/photoset/photo/@id')
+flickr_api = FlickrApi.new(ENV.fetch('FLICKR_USER_ID'), ENV.fetch('FLICKR_API_KEY'))
+ids = flickr_api.get_photo_ids_in_photoset(sat_pain_photoset_id)
 
-puts photos
+# Turn all into metadata
+ids.each_with_index do |id, i|
+  break if i > 2
 
-# For each picture, get information and populate object plus download image into a directory
-flickr_get_photo = "#{flickr_api}&method=flickr.photos.getInfo"
+  photo = flickr_api.get_photo_metadata(id)
 
-photos.each do |photo_id|
-  photo_xml = Net::HTTP.get(URI.parse("#{flickr_get_photo}&photo_id=#{photo_id}"))
-  photo = Nokogiri::XML(photo_xml)
-
-  title = photo.xpath('//photo/title')
-  date = photo.xpath('//photo/dates/@taken')
-
-  puts "#{title} taken #{date}"
+  # Save to file
+  puts YAML.dump(photo)
 end
