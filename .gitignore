@@ -1,3 +1,6 @@
+images/*
+!images/.keep
+
 _site
 
 *.gem
