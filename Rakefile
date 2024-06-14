@@ -1,4 +1,5 @@
 require 'jekyll'
+require './lib/image_manager'
 
 task default: [:clean] do
   Jekyll::Commands::Build.process({ config: '_config/jekyll_config.yml' })
@@ -17,5 +18,10 @@ end
 
 desc 'Delete all downloaded images and metadata'
 task :delete_images do
-  FileList['images/**/*'].exclude('.keep').each { |f| File.delete(f) }
+  ImageManager.delete_all
+end
+
+desc 'Download all images and metadata'
+task :download_images do
+  ImageManager.download_images
 end
