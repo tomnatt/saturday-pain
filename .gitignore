@@ -1,5 +1,6 @@
 images/*
 !images/.keep
+.jekyll-metadata
 
 _site
 
