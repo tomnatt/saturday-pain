@@ -1,4 +1,8 @@
 require 'jekyll'
+require 'rake/clean'
+
+# Full clean deletes all downloaded images
+CLEAN.include('images/**/*').exclude('.keep')
 
 task default: [:clean] do
   Jekyll::Commands::Build.process({ config: '_config/jekyll_config.yml' })
