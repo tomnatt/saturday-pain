@@ -9,12 +9,13 @@ class ImageManager
     flickr_api = FlickrApi.new(ENV.fetch('FLICKR_USER_ID'), ENV.fetch('FLICKR_API_KEY'))
     ids = flickr_api.get_photo_ids_in_photoset(@sat_pain_photoset_id)
 
-    # Turn all into metadata
-    ids.each_with_index do |id, i|
-      break if i > 2
+    # Turn all into metadata and download the image
+    ids.each do |id|
+      photo_metadata = flickr_api.get_photo_metadata(id)
+      photo_metadata.save(@image_directory)
 
-      photo = flickr_api.get_photo_metadata(id)
-      photo.save(@image_directory)
+      photo_url = flickr_api.get_photo_url(id)
+      File.write(File.join(@image_directory, "#{id}.jpg"), Net::HTTP.get(URI.parse(photo_url)))
     end
   end
 

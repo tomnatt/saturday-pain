@@ -26,5 +26,9 @@ class FlickrApi
               photo.xpath('//photo/dates/@taken').first.content)
   end
 
-  def get_photo(photo_id); end
+  def get_photo_url(photo_id)
+    photo_xml = Net::HTTP.get(URI.parse("#{@api_url}&method=flickr.photos.getSizes&photo_id=#{photo_id}"))
+    photo = Nokogiri::XML(photo_xml)
+    photo.xpath('//sizes/size[@label="Large"]').first.xpath('@source').to_s
+  end
 end
