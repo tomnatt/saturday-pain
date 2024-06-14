@@ -6,4 +6,9 @@ class Photo
     @title = title
     @date_taken = date_taken
   end
+
+  def save(dir)
+    # Save as photo_id.yml
+    File.write(File.join(dir, "#{photo_id}.yml"), YAML.dump(self))
+  end
 end
