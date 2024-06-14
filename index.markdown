@@ -4,3 +4,12 @@
 
 layout: home
 ---
+
+Welcome to the Saturday Pain website. 
+
+## Things to do!
+
+1. Pages on how to run
+1. Pages on set lists
+1. Photo pages
+1. Design!
