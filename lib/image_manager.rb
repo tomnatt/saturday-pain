@@ -19,6 +19,19 @@ class ImageManager
     end
   end
 
+  def self.load_pictures
+    photos = []
+    Dir[File.join(@image_directory, '*.yml')].map do |p|
+      pic = YAML.safe_load_file(p, permitted_classes: [Photo])
+      photos << pic
+    end
+    photos
+  end
+
+  def self.image_path(photo)
+    File.join('', @image_directory, "#{photo.photo_id}.jpg")
+  end
+
   def self.delete_all
     FileList[File.join(@image_directory, '**', '*')].exclude('.keep').each { |f| File.delete(f) }
   end
