@@ -5,8 +5,6 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 gem 'jekyll'
-gem 'minima'
-gem 'beautiful-jekyll-theme'
 # gem 'mina'
 gem 'nokogiri'
 gem 'rake'
