@@ -9,6 +9,10 @@ Layout/HashAlignment:
 Layout/LineLength:
   Max: 120
 
+Lint/MissingSuper:
+  Exclude:
+    - '_plugins/*'
+
 Metrics/MethodLength:
   Max: 12
 

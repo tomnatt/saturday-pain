@@ -43,7 +43,6 @@ module ImagePages
   #     @dir = dir
   #     @name = get_generated_pagename(filename) # name of the generated page
 
-
   #   end
   # end
 end
