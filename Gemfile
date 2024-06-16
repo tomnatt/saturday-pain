@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 gem 'jekyll'
+gem 'jekyll-feed'
 # gem 'mina'
 gem 'nokogiri'
 gem 'rake'
