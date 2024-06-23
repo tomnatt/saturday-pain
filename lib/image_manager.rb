@@ -20,12 +20,7 @@ class ImageManager
   end
 
   def self.load_pictures
-    photos = []
-    Dir[File.join(@image_directory, '*.yml')].map do |p|
-      pic = YAML.safe_load_file(p, permitted_classes: [Photo])
-      photos << pic
-    end
-    photos
+    Dir[File.join(@image_directory, '*.yml')].map { |p| YAML.safe_load_file(p, permitted_classes: [Photo]) }
   end
 
   def self.image_path(photo)
