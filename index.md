@@ -7,6 +7,9 @@ layout: layout
 
 Welcome to the Saturday Pain website. 
 
+[Exercises](/exercises/)
+[Pictures](/pics/)
+
 ## Things to do!
 
 ### Generation
