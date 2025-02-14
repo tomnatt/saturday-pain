@@ -9,6 +9,12 @@ gem 'jekyll-feed'
 # gem 'mina'
 gem 'nokogiri'
 gem 'rake'
-# gem 'rb-readline'
+
+# Rubocop
 gem 'rubocop'
 gem 'rubocop-rake'
+
+# Added for new versions of Ruby
+gem 'base64'
+gem 'csv'
+gem 'logger'
