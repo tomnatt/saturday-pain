@@ -1,0 +1,154 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(//fonts.googleapis.com/css?family=Permanent+Marker);
+
+$black: #333;
+$grey: #696969;
+$light-grey: #C0C0C0;
+$offwhite: #F8F8FF;
+$orange: #FA8072;
+
+$highlight: $offwhite;
+$highlight-hover: $orange;
+
+$body-font-family: "Open sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: "Permanent Marker", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+$overall-padding: 2rem 3rem;
+
+.page-wrap {
+  display: grid;
+  padding: 0 5%;
+  // justify-content: center;
+
+  > * {
+    padding: $overall-padding;
+    border: 1px solid $grey;
+  }
+
+  h1 {
+    font-family: $header-font-family;
+  }
+
+  header {
+    font-family: $header-font-family;
+
+    nav ul {
+      padding: 0;
+    }
+  }
+
+  section {
+    font-family: $body-font-family;
+
+    .homenav {
+      padding: 0;
+
+      .navitem {
+        height: 10rem;
+
+        a {
+          display: grid;
+          justify-content: center;
+          align-content: center;
+          height: 97%;
+          width: 97%;
+          background-color: $highlight;
+          border: 1px solid $light-grey;
+
+          color: $black;
+          text-decoration: none;
+          transition: background 300ms ease;
+          &:hover {
+            text-decoration: underline;
+            background-color: $highlight-hover;
+          }
+        }
+      }
+    }
+
+    .highlights {
+      padding: 0;
+
+      .highlight {
+        gap: 5px;
+
+        &.tourist-trap {
+          background-image: url("/images/highlights/tourist_trap.png");
+          width: 484px;
+          height: 272px;
+          background-repeat: no-repeat;
+          padding: 0 2px;
+          &:hover {
+            opacity: 0.5;
+          }
+
+          a {
+            display: block;
+            height: inherit;
+            width: inherit;
+            content-visibility: hidden;
+          }
+        }
+        &.ankle-tag {
+          background-image: url("/images/highlights/ankle_tag.png");
+          width: 318px;
+          height: 320px;
+          background-repeat: no-repeat;
+          padding: 0 2px;
+          &:hover {
+            opacity: 0.5;
+          }
+
+          a {
+            display: block;
+            height: inherit;
+            width: inherit;
+            content-visibility: hidden;
+          }
+        }
+        &.goodies {
+          background-image: url("/images/highlights/goodies.jpg");
+          width: 320px;
+          height: 320px;
+          background-repeat: no-repeat;
+          padding: 0 2px;
+          &:hover {
+            opacity: 0.5;
+          }
+
+          a {
+            display: block;
+            height: inherit;
+            width: inherit;
+            content-visibility: hidden;
+          }
+        }
+
+        &.other a {
+          height: 10rem;
+          display: grid;
+          justify-content: center;
+          align-content: center;
+          width: 97%;
+          background-color: $highlight;
+          border: 1px solid $light-grey;
+
+          color: $black;
+          text-decoration: none;
+          transition: background 300ms ease;
+          &:hover {
+            text-decoration: underline;
+            background-color: $highlight-hover;
+          }
+
+
+        }
+      }
+    }
+  }
+
+  footer {
+    font-family: $header-font-family;
+  }
+
+}

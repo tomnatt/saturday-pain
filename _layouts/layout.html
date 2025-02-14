@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="keywords" content="pictures photos"/>
-  <meta name="description" content="Photos from {{ page.year }}"/>
-  <title>{{ page.title }}</title>
+  <meta name="keywords" content="pictures photos exercise"/>
+  <meta name="description" content="{{ page.description | default: site.description }}"/>
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" media="screen" type="text/css" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" title="Default" />
+  <link rel="stylesheet" media="screen" type="text/css" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" title="Default" />
   <link rel="stylesheet" media="screen" type="text/css" href="/css/saturdaypain.css" title="Default" />
 <!-- Favicons -->
+<!--
   <link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple/apple-touch-icon-152x152.png" />
@@ -17,10 +20,36 @@
   <meta name="msapplication-TileImage" content="/images/favicon/windows/mstile-144x144.png">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#9a3521">
+-->
 </head>
 <body>
+  <div class="page-wrap">
 
-  {{ content }}
+    <header>
+      <h1>Saturday Pain</h1>
+      <h2>Exercise and fun in the park</h2>
 
+      {% if page.include_nav == true %}
+      <nav>
+        <ul class="pure-g">
+          <li class="pure-u-1-5"><a href="/">Home</a></li>
+          <li class="pure-u-1-5"><a href="/exercises/">Exercises</a></li>
+          <li class="pure-u-1-5"><a href="/photos/">Our sessions</a></li>
+        </ul>
+      </nav>
+      {% endif %}
+    </header>
+
+    <section>
+      {{ content }}
+    </section>
+
+    <footer>
+      <ul class="pure-g">
+        <li class="pure-u-1">Here is a footer</li>
+      </ul>
+    </footer>
+
+  </div>
 </body>
 </html>

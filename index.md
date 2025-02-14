@@ -1,14 +1,11 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: layout
+description: Exercises in the park
+title: Saturday Pain
+include_nav: true
 ---
 
-Welcome to the Saturday Pain website. 
-
-[Exercises](/exercises/)
-[Pictures](/pics/)
+Welcome to the Saturday Pain website.
 
 ## Things to do!
 
